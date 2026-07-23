@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5wpqycj6bilm"]
+
+[ext_resource type="Texture2D" uid="uid://bnieoit2u5yx2" path="res://Sprites/SkillNode.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/UpgradeIcon.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bs3xgatfifhho" path="res://Sprites/UpgradeIcons/TestUpgrade.png" id="3"]
+
+[node name="UpgradeIcon" type="NinePatchRect"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 2.0
+offset_bottom = 2.0
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("1")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+script = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3")
+stretch_mode = 3

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://yw1bortc7jjt"]
+
+[ext_resource type="PackedScene" uid="uid://snbpjtao5jxb" path="res://Scenes/Enemies/BaseEnemy.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bb0jmjgxk6g4b" path="res://Sprites/Enemies/SquareEnemy.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dk58bl4oncfl" path="res://Sprites/Enemies/SquareEnemyMask.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyyr8"]
+size = Vector2(128, 128)
+
+[node name="EnemySquare" instance=ExtResource("1")]
+
+[node name="TextureProgressBar" parent="." index="0"]
+fill_mode = 3
+texture_over = ExtResource("2")
+texture_progress = ExtResource("3")
+texture_progress_offset = Vector2(6, 6)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_cyyr8")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5dpcbs1kxgp6"]
+
+[ext_resource type="Texture2D" uid="uid://cek1spaak73ao" path="res://Sprites/Particles/Line.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/AutoFreeParticles.gd" id="2"]
+
+[sub_resource type="Curve" id="Curve_ah6da"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.566667, 0.241758), -3.00582, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wg12a"]
+curve = SubResource("Curve_ah6da")
+
+[sub_resource type="Curve" id="Curve_fnbda"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.173333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.22178, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_doqud"]
+curve = SubResource("Curve_fnbda")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bb5xs"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+radial_velocity_min = 100.0
+radial_velocity_max = 220.0
+radial_velocity_curve = SubResource("CurveTexture_wg12a")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_doqud")
+
+[node name="HitParticles" type="GPUParticles2D"]
+self_modulate = Color(0.941176, 0.227451, 0.247059, 1)
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_bb5xs")
+texture = ExtResource("1")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+script = ExtResource("2")

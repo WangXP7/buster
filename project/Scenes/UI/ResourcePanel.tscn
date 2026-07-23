@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwkr8afxbywks"]
+
+[ext_resource type="Script" path="res://Scripts/UI/ResourcePanel.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dhv84te2tqro0" path="res://Sprites/UI/Red.png" id="2"]
+
+[node name="ResourcePanel" type="PanelContainer"]
+self_modulate = Color(0.862745, 0.862745, 0.862745, 1)
+offset_right = 54.0
+offset_bottom = 14.0
+size_flags_vertical = 0
+theme_type_variation = &"OutlinedPanelContainer"
+script = ExtResource("1")
+
+[node name="Control" type="Control" parent="."]
+show_behind_parent = true
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="ResourceIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2")
+stretch_mode = 3
+
+[node name="AmountText" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+bbcode_enabled = true
+text = "[right]518,053[/right]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false

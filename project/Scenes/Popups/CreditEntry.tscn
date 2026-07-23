@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://du3xeoksgqms5"]
+
+[ext_resource type="PackedScene" uid="uid://cjqgfnah8fy1f" path="res://Scenes/UI/Buttons/TextButton.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/Buttons/URLButton.gd" id="2"]
+
+[node name="CreditEntry" type="VBoxContainer"]
+theme_override_constants/separation = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "developer"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+
+[node name="TextButton" parent="GridContainer" instance=ExtResource("1")]
+custom_minimum_size = Vector2(60, 18)
+layout_mode = 2
+script = ExtResource("2")
+url = ""
+btn_text = "dev_name"

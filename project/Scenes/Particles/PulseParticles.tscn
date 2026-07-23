@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://xvs0sq3lmpg1"]
+
+[ext_resource type="Texture2D" uid="uid://cek1spaak73ao" path="res://Sprites/Particles/Line.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/AutoFreeParticles.gd" id="2"]
+
+[sub_resource type="Curve" id="Curve_sm400"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0879121), -1.78022, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l3l4n"]
+curve = SubResource("Curve_sm400")
+
+[sub_resource type="Curve" id="Curve_qrt7c"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.173333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.22178, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wnauy"]
+curve = SubResource("Curve_qrt7c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0iqk0"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+radial_velocity_min = 120.0
+radial_velocity_max = 300.0
+radial_velocity_curve = SubResource("CurveTexture_l3l4n")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_wnauy")
+
+[node name="PulseParticles" type="GPUParticles2D"]
+self_modulate = Color(0.247059, 0.72549, 0.921569, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_0iqk0")
+texture = ExtResource("1")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+script = ExtResource("2")

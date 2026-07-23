@@ -1,0 +1,112 @@
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://bpdtsn4v8rt4a"]
+
+[ext_resource type="Texture2D" uid="uid://b5xye4v24owi1" path="res://Sprites/UI/Shapes/Box.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b1cth43ad1sbf" path="res://Sprites/UI/Shapes/FilledPanel.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bse61dm218aok" path="res://Sprites/UI/Shapes/Slider/Grabber.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dn1eogftya5em" path="res://Sprites/UI/Shapes/PanelOutline.png" id="4"]
+[ext_resource type="FontFile" uid="uid://bnmjg1sl5q462" path="res://Themes/retro-pixel-cute-prop.ttf" id="5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_827e7"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rchse"]
+texture = ExtResource("1")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vl1es"]
+texture = ExtResource("2")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7yxw"]
+bg_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yosd6"]
+bg_color = Color(0.58, 0.58, 0.58, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wff2w"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.486275)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11upi"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.27, 0.27, 0.27, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpoqc"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.19, 0.19, 0.19, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kntqo"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xukl"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+texture = ExtResource("4")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvje8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.32, 0.32, 0.32, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yh72"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oendm"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_a7tmp"]
+base_font = ExtResource("5")
+spacing_top = -2
+spacing_bottom = -1
+
+[resource]
+default_font = SubResource("FontVariation_a7tmp")
+default_font_size = 11
+BlackPanel/base_type = &"PanelContainer"
+BlackPanel/styles/panel = SubResource("StyleBoxFlat_827e7")
+BoxPanel/base_type = &"PanelContainer"
+BoxPanel/styles/panel = SubResource("StyleBoxTexture_rchse")
+FilledPanel/base_type = &"PanelContainer"
+FilledPanel/styles/panel = SubResource("StyleBoxTexture_vl1es")
+HSlider/icons/grabber = ExtResource("3")
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource("3")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_y7yxw")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_yosd6")
+HSlider/styles/slider = SubResource("StyleBoxFlat_wff2w")
+Label/colors/font_color = Color(0.862745, 0.862745, 0.862745, 1)
+Label/constants/line_spacing = 0
+MenuButton/styles/hover = SubResource("StyleBoxFlat_11upi")
+MenuButton/styles/normal = SubResource("StyleBoxFlat_wpoqc")
+MenuButton/styles/pressed = SubResource("StyleBoxFlat_kntqo")
+OutlinedPanelContainer/base_type = &"PanelContainer"
+OutlinedPanelContainer/styles/panel = SubResource("StyleBoxTexture_5xukl")
+PopupMenu/constants/v_separation = 0
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_cvje8")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_7yh72")
+RichTextLabel/colors/default_color = Color(0.862745, 0.862745, 0.862745, 1)
+RichTextLabel/constants/shadow_outline_size = 0
+SolidPanel/base_type = &"PanelContainer"
+SolidPanel/styles/panel = SubResource("StyleBoxFlat_oendm")

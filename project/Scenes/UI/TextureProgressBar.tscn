@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnkbqw5ielcin"]
+
+[ext_resource type="Texture2D" uid="uid://bkqekvfu8t8ui" path="res://Sprites/UI/Shapes/Bar/BarOutline.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ddp8af40xma3m" path="res://Sprites/UI/Shapes/Bar/BarInner.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cq0q0rhrmt78y" path="res://Sprites/UI/Shapes/Bar/BarFill.png" id="3"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+offset_right = 65.0
+offset_bottom = 12.0
+step = 0.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("1")
+texture_over = ExtResource("2")
+texture_progress = ExtResource("3")
+tint_under = Color(0.862745, 0.862745, 0.862745, 1)
+tint_over = Color(0.121569, 0.121569, 0.121569, 1)
+tint_progress = Color(0.941176, 0.227451, 0.247059, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0.121569, 0.121569, 0.121569, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

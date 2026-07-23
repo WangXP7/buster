@@ -1,0 +1,277 @@
+[gd_scene load_steps=12 format=3 uid="uid://4g654555nk4v"]
+
+[ext_resource type="Script" path="res://Scripts/Ending.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bt7o82dnp4ftr" path="res://Sprites/LoadingCircle.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://buekg732eaaq3" path="res://Sprites/Smile.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://cjqgfnah8fy1f" path="res://Scenes/UI/Buttons/TextButton.tscn" id="4"]
+[ext_resource type="AudioStream" uid="uid://c158bmbqm4qfp" path="res://Audio/SFX/Static.ogg" id="5"]
+[ext_resource type="AudioStream" uid="uid://dya78w8dhjtqy" path="res://Audio/SFX/VoiceLoop.ogg" id="6"]
+[ext_resource type="AudioStream" uid="uid://7aum7ky30awx" path="res://Audio/SFX/VCR.ogg" id="7"]
+[ext_resource type="AudioStream" uid="uid://wesunts0iudi" path="res://Audio/SFX/BackgroundNoise.ogg" id="8"]
+
+[sub_resource type="Animation" id="Animation_n71bp"]
+resource_name = "Credits"
+length = 16.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/Title:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/Dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Music:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8, 11.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits/Thanks:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13, 16.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hd4pf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/Title:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/Dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Music:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits/Thanks:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uh0g6"]
+_data = {
+"Credits": SubResource("Animation_n71bp"),
+"RESET": SubResource("Animation_hd4pf")
+}
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0, 0, 0, 0.419608)
+
+[node name="LoadingBox" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 172.0
+offset_top = 115.0
+offset_right = 308.0
+offset_bottom = 155.0
+theme_type_variation = &"FilledPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadingBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadingBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Message" type="RichTextLabel" parent="LoadingBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "deploying virus..."
+fit_content = true
+scroll_active = false
+
+[node name="Loading" type="Sprite2D" parent="LoadingBox"]
+unique_name_in_owner = true
+position = Vector2(65, 27)
+texture = ExtResource("2")
+
+[node name="VirusDeployedBox" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 172.0
+offset_top = 103.0
+offset_right = 308.0
+offset_bottom = 167.0
+theme_type_variation = &"FilledPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="VirusDeployedBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VirusDeployedBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Message" type="RichTextLabel" parent="VirusDeployedBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "virus deployed!"
+fit_content = true
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="VirusDeployedBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3")
+stretch_mode = 3
+
+[node name="Yes" parent="VirusDeployedBox/MarginContainer/VBoxContainer" instance=ExtResource("4")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+btn_text = "ok"
+
+[node name="StaticAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5")
+bus = &"SFX"
+
+[node name="VoiceLoop" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6")
+bus = &"SFX"
+
+[node name="VCR" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7")
+bus = &"SFX"
+
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8")
+bus = &"SFX"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="Credits" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = 113.0
+offset_top = 67.0
+offset_right = 229.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 22
+text = "nodebuster"
+
+[node name="Dev" type="Label" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = 169.0
+offset_top = 105.0
+offset_right = 381.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 22
+text = "a game by Goblobin"
+
+[node name="Music" type="Label" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 126.0
+offset_right = 382.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 22
+text = "with music by Holizna"
+
+[node name="Thanks" type="Label" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 115.0
+offset_right = 382.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 22
+text = "thanks for playing <3"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_uh0g6")
+}

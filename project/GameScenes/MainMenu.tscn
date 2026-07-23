@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm2s5fbukikna"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu/MainMenu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://duaqm00r77jx5" path="res://Scenes/Effects/BgParticles.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cjqgfnah8fy1f" path="res://Scenes/UI/Buttons/TextButton.tscn" id="3"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -95.0
+offset_top = -84.0
+offset_right = 681.0
+offset_bottom = 392.0
+mouse_filter = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="BGParticles" parent="." instance=ExtResource("2")]
+amount = 128
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="GameTitle" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -51.0
+offset_right = 58.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "nodebuster"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1
+
+[node name="RedSquare" type="ColorRect" parent="UI/GameTitle"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(16, 16)
+color = Color(0.941176, 0.227451, 0.247059, 1)
+
+[node name="TypeCursor" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+offset_left = 299.0
+offset_top = 87.0
+offset_right = 301.0
+offset_bottom = 107.0
+color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+offset_left = -82.0
+offset_top = 178.0
+offset_right = 564.0
+offset_bottom = 208.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NewGameBtn" parent="UI/HBoxContainer" instance=ExtResource("3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 30)
+layout_mode = 2
+btn_text = "new game"
+
+[node name="ContinueBtn" parent="UI/HBoxContainer" instance=ExtResource("3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 30)
+layout_mode = 2
+btn_text = "continue"
+main_color = Color(0.152941, 0.607843, 0.227451, 1)
+
+[node name="OptionsBtn" parent="UI/HBoxContainer" instance=ExtResource("3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 22)
+layout_mode = 2
+size_flags_vertical = 4
+btn_text = "options"
+main_color = Color(0.929412, 0.305882, 0.67451, 1)
+
+[node name="QuitBtn" parent="UI/HBoxContainer" instance=ExtResource("3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 22)
+layout_mode = 2
+size_flags_vertical = 4
+btn_text = "quit"
+main_color = Color(0.941176, 0.227451, 0.247059, 1)
+
+[node name="CreditsBtn" parent="UI" instance=ExtResource("3")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -24.0
+offset_right = 57.0
+offset_bottom = -4.0
+grow_vertical = 0
+btn_text = "credits"
+main_color = Color(0.17, 0.17, 0.17, 1)

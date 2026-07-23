@@ -1,0 +1,161 @@
+[gd_scene load_steps=13 format=3 uid="uid://suunumjdw5yw"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/BattleScene.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/Initializer.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://duaqm00r77jx5" path="res://Scenes/Effects/BgParticles.tscn" id="3"]
+[ext_resource type="Script" path="res://Scripts/Battle/EnemySpawner.gd" id="4"]
+[ext_resource type="Script" path="res://Scripts/Battle/EnemyDropsCreator.gd" id="5"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerCursor.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://dm5clwt6qweit" path="res://Sprites/Square32.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://c1mhugae8iev3" path="res://Scenes/Effects/CornerBox.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://dnkbqw5ielcin" path="res://Scenes/UI/TextureProgressBar.tscn" id="9"]
+[ext_resource type="Script" path="res://Scripts/Battle/PlayerHealthBar.gd" id="10"]
+[ext_resource type="Script" path="res://Scripts/Battle/XPBar.gd" id="11"]
+[ext_resource type="PackedScene" uid="uid://cjqgfnah8fy1f" path="res://Scenes/UI/Buttons/TextButton.tscn" id="12"]
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Initializer" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -95.0
+offset_top = -84.0
+offset_right = 681.0
+offset_bottom = 392.0
+mouse_filter = 2
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="BGParticles" parent="." instance=ExtResource("3")]
+amount = 128
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4")
+
+[node name="EnemyDropsCreator" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 374.0
+offset_top = 120.0
+offset_right = 467.0
+offset_bottom = 160.0
+text = "gggg
+$$$$"
+fit_content = true
+scroll_active = false
+
+[node name="PlayerCursor" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(93, 127)
+script = ExtResource("6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerCursor"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("7")
+
+[node name="CornerBox" parent="PlayerCursor" instance=ExtResource("8")]
+unique_name_in_owner = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+follow_viewport_enabled = true
+
+[node name="HealthBar" parent="UI" instance=ExtResource("9")]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 86.0
+offset_bottom = 22.0
+script = ExtResource("10")
+
+[node name="HealthTag" type="Label" parent="UI/HealthBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -10.0
+offset_right = 42.0
+offset_bottom = 2.0
+text = "health"
+
+[node name="HealthAmountText" type="Label" parent="UI/HealthBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.121569, 0.121569, 0.121569, 1)
+text = "9.9/10"
+horizontal_alignment = 1
+
+[node name="XPBar" parent="UI" instance=ExtResource("9")]
+unique_name_in_owner = true
+offset_left = 10.0
+offset_top = 33.0
+offset_right = 86.0
+offset_bottom = 45.0
+tint_progress = Color(0.839216, 0.631373, 0.160784, 1)
+script = ExtResource("11")
+
+[node name="XPTag" type="Label" parent="UI/XPBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 1.0
+text = "xp"
+
+[node name="XPAmountText" type="Label" parent="UI/XPBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.121569, 0.121569, 0.121569, 1)
+text = "100%"
+horizontal_alignment = 1
+
+[node name="TerminateBtn" parent="UI" instance=ExtResource("12")]
+unique_name_in_owner = true
+offset_left = 415.0
+offset_top = 237.0
+offset_right = 477.0
+offset_bottom = 257.0
+btn_text = "TERMINATE"
+main_color = Color(0.941176, 0.227451, 0.247059, 1)
+
+[node name="ProgressBar" parent="UI" instance=ExtResource("9")]
+unique_name_in_owner = true
+offset_left = 3.0
+offset_top = 261.0
+offset_right = 477.0
+offset_bottom = 267.0
+max_value = 45.0
+value = 30.0
+tint_progress = Color(0.862745, 0.862745, 0.862745, 1)
+
+[node name="ProgressTag" type="Label" parent="UI/ProgressBar"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 1.0
+text = "progress"
+
+[node name="PrestigeLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 9.0
+grow_horizontal = 0
+text = "prestige x"
+horizontal_alignment = 2

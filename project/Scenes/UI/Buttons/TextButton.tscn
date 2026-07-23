@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjqgfnah8fy1f"]
+
+[ext_resource type="PackedScene" uid="uid://c7l1shurpl02b" path="res://Scenes/UI/Buttons/MyButton.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/Buttons/TextButton.gd" id="2"]
+
+[node name="TextButton" instance=ExtResource("1")]
+script = ExtResource("2")
+btn_text = ""
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Visuals" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0.121569, 0.121569, 0.121569, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
+scroll_active = false

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc6hdws25nb53"]
+
+[ext_resource type="PackedScene" uid="uid://snbpjtao5jxb" path="res://Scenes/Enemies/BaseEnemy.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://djgumytqe8jfr" path="res://Sprites/Enemies/PentagonEnemy.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cvxe6prdobanx" path="res://Sprites/Enemies/PentagonEnemyMask.png" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gdqt"]
+radius = 60.0
+
+[node name="EnemyPentagon" instance=ExtResource("1")]
+
+[node name="TextureProgressBar" parent="." index="0"]
+fill_mode = 3
+texture_over = ExtResource("2")
+texture_progress = ExtResource("3")
+texture_progress_offset = Vector2(6, 9)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_4gdqt")
