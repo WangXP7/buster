@@ -1,0 +1,9 @@
+# Godot generated artifacts (regenerated on open)
+.godot/
+project.binary
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
