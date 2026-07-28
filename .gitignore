@@ -1,6 +1,32 @@
 # Godot generated artifacts (regenerated on open)
 .godot/
 project.binary
+*.tmp
+
+# Local SDK/toolchain and download cache
+/.tools/
+/downloads/
+
+# Generated builds, isolated saves and logs
+/build/
+/dist/
+/exports/
+/logs/
+/.runtime/
+
+# Godot local credentials and overrides
+export_credentials.cfg
+override.cfg
+
+# Never commit recovered or exported packages
+raw_pck/
+**/raw_pck/
+*.exe
+*.pck
+*.tpz
+*.zip
+*.7z
+*.rar
 
 # OS junk
 Thumbs.db

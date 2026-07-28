@@ -122,9 +122,10 @@
 
 ## 三、发行与运行（影响「可修改 / 可测试」）
 
-### BUG-13 🔴 `MySteam.gd` 未订阅 Steam 时直接退出，无法在 Steam 外运行/测试
+### BUG-13 ✅ 历史问题：`MySteam.gd` 未订阅 Steam 时直接退出
+- **状态**：已在 `batch-1-steam-offline` 修复，并由后续批次保留。
 - **位置**：`Autoloads/MySteam.gd` 第 6–10 行
-- **代码**：
+- **原始代码**：
   ```gdscript
   var is_owned: bool = Steam.isSubscribed()
   var family_shared: bool = Steam.isSubscribedFromFamilySharing()
@@ -132,9 +133,9 @@
       print("User does not own this game")
       get_tree().quit()
   ```
-- **现象**：若游戏不是通过 Steam 启动 / 当前账号未订阅该 AppID（3107330），`_ready()` 直接 `quit()`。
-- **影响**：逆向重建的**可编辑工程在 Godot 编辑器里直接运行也会因 GodotSteam 初始化失败而退出**，导致「进入可修改和可测试状态」受阻——必须挂 Steam 才能跑。
-- **建议**：增加非 Steam/离线分支（或读取启动参数跳过校验），便于本地调试修改版；或文档明确「测试需经 Steam 启动」。
+- **原始现象**：若游戏不是通过 Steam 启动 / 当前账号未订阅该 AppID（3107330），`_ready()` 直接 `quit()`。
+- **当前行为**：`MySteam.gd` 已加入 Steam 单例、初始化状态和所有权门控；Steam 不可用时进入离线/非 Steam 路径，不再阻塞编辑器测试。
+- **剩余边界**：工程仍有直接引用 `Steam` 全局类的路径，因此 GodotSteam GDExtension 必须保留并成功加载，不能通过删除扩展实现离线运行。
 
 ### BUG-14 🟡 `CryptoMine` 仅「游戏开着」时累积，无真正离线（关游戏）收益
 - **位置**：`Systems/CryptoMine.gd` 第 15–22 行 + `Autoloads/State.gd:104–106`（`_process` 每帧调用 `crypto_mine.process(delta)`）

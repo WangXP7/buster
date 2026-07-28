@@ -962,7 +962,7 @@ Infinity2–9 的主要设计作用是消耗有限 Cores，并把终局放在技
 
 ### 19.5 恢复/构建风险，不等同于玩法 BUG
 
-- 缺 `export_presets.cfg`。
+- 原始 `export_presets.cfg` 缺失；`batch-4-dev-environment` 已补建并验证 Windows x64 开发预设，但它不等同于原作者的发布配置。
 - `icon.svg` 是 VTracer 有损重建。
 - GodotSteam 仅有 Windows x64 载荷。
 - `.gdextension` 声明的 macOS、Linux、Win32 库不存在。
