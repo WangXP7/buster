@@ -1,7 +1,7 @@
 import struct, os, sys
 
-PCK = r"D:/REDACTED-DIR/Nodebuster/Nodebuster.pck"
-OUT = r"D:/REDACTED-DIR/_reverse_tools/extracted"
+PCK = sys.argv[1] if len(sys.argv) > 1 else "Nodebuster.pck"  # 用法: python unpack_pck.py <GDPC包文件> [输出目录]
+OUT = sys.argv[2] if len(sys.argv) > 2 else "extracted"
 
 def read_i32(f): return struct.unpack("<i", f.read(4))[0]
 def read_i64(f): return struct.unpack("<q", f.read(8))[0]

@@ -1,8 +1,8 @@
 # Nodebuster — 已知 BUG 与可优化点清单
 
-> 逆向来源：`D:/REDACTED-DIR/Nodebuster`（Godot 4.2.2 发布版 exe+pck）
-> 解包与重建工程：`D:/REDACTED-DIR/2026-07-23-19-24-50/Nodebuster-RE/`
-> 源码基准：`D:/REDACTED-DIR/_reverse_tools/extracted/Scripts/`
+> 逆向来源：`<本机开发目录>/Nodebuster`（Godot 4.2.2 发布版 exe+pck）
+> 解包与重建工程：`<本机开发目录>/2026-07-23-19-24-50/Nodebuster-RE/`
+> 源码基准：`<本机开发目录>/_reverse_tools/extracted/Scripts/`
 >
 > **本清单只记录、不修复。** 每条均标注文件与行号、现象、影响与建议，供后续修改批次参考。
 > 严重度：🔴 高（会导致功能异常/数值错误）｜🟡 中（死代码/设计债务，影响维护与扩展）｜🔵 低（体验/健壮性边角）
